@@ -54,10 +54,11 @@ s3.ListBuckets(function(err, data) {
 s3.CreateBucket({ BucketName : 'my-bucket' }, function(err, data) {
     if (err) {
         // ...
+        return;
     }
     s3.PutObject({
-        BucketName : 'my-bucket',
-        ObjectName : 'some.txt',
+        BucketName    : 'my-bucket',
+        ObjectName    : 'some.txt',
         ContentLength : '14',
         Body          : "Hello, World!\n",
     }, function(err, data) {
