@@ -35,6 +35,10 @@
   Service APIs implemented, but soon there will be many more.
 </p>
 
+<h3>Examples for Amazon S3</h3>
+
+<p>Set up the S3 service:</p>
+
 <pre><code>
 var awssum = require('awssum');
 var amazon = awssum.load('amazon/amazon');
@@ -46,11 +50,19 @@ var s3 = new s3Service(
     'aws_account_id',
     amazon.US_WEST_1
 );
+</code></pre>
 
+<p>List all of your buckets:</p>
+
+<pre><code>
 s3.ListBuckets(function(err, data) {
     console.log(data);
 });
+</code></pre>
 
+<p>Create a bucket, and if successful, put an object into it:</p>
+
+<pre><code>
 s3.CreateBucket({ BucketName : 'my-bucket' }, function(err, data) {
     if (err) {
         // ...
@@ -66,8 +78,6 @@ s3.CreateBucket({ BucketName : 'my-bucket' }, function(err, data) {
     });
 });
 </code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
 <h3>Other Docs</h3>
 
